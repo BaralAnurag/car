@@ -1,0 +1,24 @@
+<form (ngSubmit)="submit(carForm)" [formGroup]="carForm">
+  <div>
+    <h3>Car Form</h3>
+    <label for="carMake">Make</label>
+    <input id="carMake" type="text" placeholder="Make (required)" formControlName="carMake" />
+    <label for="carModel">Model</label>
+    <input id="carModel" type="text" placeholder="Model (required)" formControlName="carModel" />
+    <label for="carYear">Year</label>
+    <input id="carYear" type="number" placeholder="Year (required)" formControlName="carYear" />
+  </div>
+  <br>
+  <div>
+    <button type="submit" [title]="carForm.valid ? 'Save' : 'Disbled'" [disabled]="!carForm.valid">
+      Submit
+    </button>
+  </div>
+</form>
+<hr>
+<label>cars:</label>
+<select>
+  <option *ngFor="let car of carsList">
+    {{car.carYear + " " + car.carMake + " " + car.carModel}}
+  </option>
+</select>
